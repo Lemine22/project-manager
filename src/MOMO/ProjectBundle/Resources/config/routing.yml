@@ -1,0 +1,16 @@
+project_projects:
+    resource: "@ProjectBundle/Resources/config/routing/dash.yml"
+    prefix:   /projects
+
+project_homepage:
+    path:     /
+    defaults: { _controller: ProjectBundle:Default:index }
+
+project_hello:
+    path:    /hello/{name}
+    defaults: {_controller:  ProjectBundle:Default:hello }
+
+
+project_jemal:
+    path:    /jemal/{name}
+    defaults: {_controller:  ProjectBundle:Default:jemal }

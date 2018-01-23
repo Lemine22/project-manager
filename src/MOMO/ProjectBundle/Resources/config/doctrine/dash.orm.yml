@@ -1,0 +1,25 @@
+MOMO\ProjectBundle\Entity\dash:
+    type: entity
+    table: null
+    repositoryClass: MOMO\ProjectBundle\Repository\dashRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: '100'
+        description:
+            type: text
+        date:
+            type: datetime
+        username:
+            type: string
+            length: '100'
+        link:
+            type: string
+            length: '100'
+    lifecycleCallbacks: {  }

@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Dash</h1>
+
+    <table class="table table-striped">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ dash.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ dash.name }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ dash.description }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{% if dash.date %}{{ dash.date|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Username</th>
+                <td>{{ dash.username }}</td>
+            </tr>
+            <tr>
+                <th>Link</th>
+                <td>{{ dash.link }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('projects_index') }}"  class="btn btn-warning">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('projects_edit', { 'id': dash.id }) }}" class="btn btn-success">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

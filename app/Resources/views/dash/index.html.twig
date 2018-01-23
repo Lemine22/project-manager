@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <h1 class="text-primary text-center">Dashes list</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Date</th>
+                <th>Username</th>
+                <th>Link</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for dash in dashes %}
+            <tr>
+                <td><a href="{{ path('projects_show', { 'id': dash.id }) }}">{{ dash.id }}</a></td>
+                <td>{{ dash.name }}</td>
+                <td>{{ dash.description }}</td>
+                <td>{% if dash.date %}{{ dash.date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ dash.username }}</td>
+                <td>{{ dash.link }}</td>
+                <td>
+                    <div class="btn-group">
+                        
+                            <a href="{{ path('projects_show', { 'id': dash.id }) }}" class="btn btn-warning">show</a>
+                        
+                        
+                            <a href="{{ path('projects_edit', { 'id': dash.id }) }}"class="btn btn-success">edit</a>
+                        
+                    </div>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+            <a href="{{ path('projects_new') }}" class="btn btn-primary">Create a new dash</a>
+     
+
+    </div>
+{% endblock %}
